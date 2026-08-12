@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#050507">
   <title>Daniel Esparza | Tienda Oficial & Comunidad Noctari</title>
 
   <!-- Google Fonts -->
@@ -12,7 +13,7 @@
 
   <style>
     /* ===================================================
-       VARIABLES & BASE STYLES 
+       VARIABLES & BASE STYLES (MACOS / GITHUB OPTIMIZED)
     =================================================== */
     :root {
       --bg-dark: #050507;
@@ -30,6 +31,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent; /* Safari optimización táctil */
     }
 
     html {
@@ -38,10 +40,28 @@
 
     body {
       background-color: var(--bg-dark);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
       color: var(--text-main);
       overflow-x: hidden;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased; /* Renderizado fino de fuentes en macOS */
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Scrollbar con estilo macOS */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f1f2e;
+      border-radius: 5px;
+      border: 2px solid var(--bg-dark);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-purple);
     }
 
     .glow-bg-top {
@@ -67,7 +87,7 @@
     }
 
     /* ===================================================
-       NAVBAR & MENU RESPONSIVO
+       NAVBAR & MENU RESPONSIVO (SAFARI / MAC FRIENDLY)
     =================================================== */
     nav {
       position: fixed;
@@ -79,10 +99,12 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 5%;
-      background: rgba(5, 5, 7, 0.95);
+      background: rgba(5, 5, 7, 0.85);
+      -webkit-backdrop-filter: blur(20px); /* macOS / Safari Glassmorphism */
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       z-index: 1000;
+      transform: translateZ(0); /* Aceleración GPU */
     }
 
     .nav-brand {
@@ -271,6 +293,7 @@
       font-size: 14px;
       letter-spacing: 1px;
       border: 1px solid var(--border-color);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
     }
@@ -339,7 +362,7 @@
       width: 100%;
       height: 440px;
       object-fit: cover;
-      object-position: center 20%; /* Enfocado en la cara */
+      object-position: center 20%;
       border-radius: 18px;
       position: relative;
       z-index: 1;
@@ -368,6 +391,7 @@
       padding: 20px 12px;
       border-radius: 16px;
       text-align: center;
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
     }
@@ -407,6 +431,7 @@
       border: 1px solid var(--border-color);
       border-radius: 20px;
       overflow: hidden;
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       display: flex;
@@ -457,13 +482,9 @@
       border-radius: 20px;
       text-transform: uppercase;
       letter-spacing: 1px;
+      -webkit-backdrop-filter: blur(5px);
       backdrop-filter: blur(5px);
       z-index: 2;
-    }
-
-    .tag.tag-gold {
-      border-color: var(--accent-gold);
-      color: var(--accent-gold);
     }
 
     .product-info {
@@ -520,7 +541,7 @@
     }
 
     /* ===================================================
-       SECCIÓN CLUB DE FANS & PROMO BOLETOS
+       CLUB DE FANS & PROMO BOLETOS
     =================================================== */
     .fanclub-section {
       background: linear-gradient(135deg, rgba(20, 15, 35, 0.9), rgba(5, 5, 7, 0.95));
@@ -633,7 +654,7 @@
     }
 
     /* ===================================================
-       SECCIÓN COMUNIDAD WHATSAPP
+       COMUNIDAD WHATSAPP
     =================================================== */
     .community-section {
       background: rgba(15, 23, 42, 0.6);
@@ -672,7 +693,7 @@
       height: 70px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center top; /* Cara centrada */
+      object-position: center top;
       border: 2px solid var(--whatsapp-green);
       box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
       background-color: #1a1a24;
@@ -746,6 +767,7 @@
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.88);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       z-index: 2000;
       display: none;
@@ -924,6 +946,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
       z-index: 99;
@@ -935,7 +958,7 @@
     }
 
     /* ===================================================
-       RESPONSIVE DESIGN (OPTIMIZACIÓN MÓVIL)
+       RESPONSIVE DESIGN (OPTIMIZADO SAFARI Y MÓVIL)
     =================================================== */
     @media (max-width: 900px) {
       .menu-toggle {
@@ -991,7 +1014,7 @@
   <!-- NAVBAR CON NAVEGACIÓN LIMPIA -->
   <nav>
     <a href="#inicio" class="nav-brand">
-      <img src="Logo.jpg" alt="Logo" onerror="this.src='https://via.placeholder.com/150/1a1a24/8b5cf6?text=DE'">
+      <img src="./Logo.jpg" alt="Logo" onerror="this.src='https://via.placeholder.com/150/1a1a24/8b5cf6?text=DE'">
       <span>DANIEL ESPARZA</span>
     </a>
 
@@ -1032,7 +1055,7 @@
   <section id="artista">
     <div class="about-container">
       <div class="about-image-wrapper">
-        <img src="Danpres.jpg" alt="Daniel Esparza" class="about-image" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Danpres.jpg'">
+        <img src="./Danpres.jpg" alt="Daniel Esparza" class="about-image" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Danpres.jpg'">
       </div>
       <div class="about-text">
         <span class="section-subtitle" style="text-align: left;">Biografía y Visión</span>
@@ -1075,10 +1098,10 @@
     <div class="products-grid">
       
       <!-- Producto 1 -->
-      <div class="product-card" data-id="1" data-name="Playera noctari (oversize)" data-price="699" data-img="Merch1.jpg">
+      <div class="product-card" data-id="1" data-name="Playera noctari (oversize)" data-price="699" data-img="./Merch1.jpg">
         <div class="product-img-box">
           <span class="tag">Oversize</span>
-          <img src="Merch1.jpg" alt="Playera noctari (oversize)" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch1.jpg'">
+          <img src="./Merch1.jpg" alt="Playera noctari (oversize)" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch1.jpg'">
         </div>
         <div class="product-info">
           <h3 class="product-title">Playera noctari (oversize)</h3>
@@ -1093,10 +1116,10 @@
       </div>
 
       <!-- Producto 2 -->
-      <div class="product-card" data-id="2" data-name="Sudadera noctari edition negro/morado" data-price="999" data-img="Merch2.jpg">
+      <div class="product-card" data-id="2" data-name="Sudadera noctari edition negro/morado" data-price="999" data-img="./Merch2.jpg">
         <div class="product-img-box">
           <span class="tag">Edición Limitada</span>
-          <img src="Merch2.jpg" alt="Sudadera noctari edition negro/morado" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch2.jpg'">
+          <img src="./Merch2.jpg" alt="Sudadera noctari edition negro/morado" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch2.jpg'">
         </div>
         <div class="product-info">
           <h3 class="product-title">Sudadera noctari edition negro/morado</h3>
@@ -1111,10 +1134,10 @@
       </div>
 
       <!-- Producto 3 -->
-      <div class="product-card" data-id="3" data-name="Gorra de signatura noctari" data-price="499" data-img="Merch3.jpg">
+      <div class="product-card" data-id="3" data-name="Gorra de signatura noctari" data-price="499" data-img="./Merch3.jpg">
         <div class="product-img-box">
           <span class="tag">Exclusivo</span>
-          <img src="Merch3.jpg" alt="Gorra de signatura noctari" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch3.jpg'">
+          <img src="./Merch3.jpg" alt="Gorra de signatura noctari" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch3.jpg'">
         </div>
         <div class="product-info">
           <h3 class="product-title">Gorra de signatura noctari</h3>
@@ -1129,10 +1152,10 @@
       </div>
 
       <!-- Producto 4 -->
-      <div class="product-card" data-id="4" data-name="Stickers de presentación colección Daniel esparza" data-price="149" data-img="Sticker.jpg">
+      <div class="product-card" data-id="4" data-name="Stickers de presentación colección Daniel esparza" data-price="149" data-img="./Sticker.jpg">
         <div class="product-img-box">
           <span class="tag">Accesorios</span>
-          <img src="Sticker.jpg" alt="Stickers de presentación colección Daniel esparza" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Sticker.jpg'">
+          <img src="./Sticker.jpg" alt="Stickers de presentación colección Daniel esparza" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Sticker.jpg'">
         </div>
         <div class="product-info">
           <h3 class="product-title">Stickers de presentación colección Daniel esparza</h3>
@@ -1158,7 +1181,7 @@
       <div class="fanclub-container">
         <!-- Foto Próximo Evento / Boletos -->
         <div class="event-img-wrapper" id="eventImgBox">
-          <img src="Boletos.jpg" alt="Boletos Próximo Concierto" onerror="this.src='https://via.placeholder.com/500x600/1a1a24/f59e0b?text=Boletos.jpg'">
+          <img src="./Boletos.jpg" alt="Boletos Próximo Concierto" onerror="this.src='https://via.placeholder.com/500x600/1a1a24/f59e0b?text=Boletos.jpg'">
         </div>
 
         <div class="fanclub-details">
@@ -1175,7 +1198,6 @@
             </p>
           </div>
 
-          <!-- Tarjeta agregable al carrito -->
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap;">
             <div>
               <span style="font-size: 12px; color: var(--text-muted); display: block;">Precio Preventa</span>
@@ -1201,7 +1223,7 @@
         <!-- Tarjeta de Invitación de Daniel Esparza -->
         <div class="artist-invitation-card">
           <div class="artist-profile">
-            <img src="Comunidad.jpg" alt="Daniel Esparza" class="artist-img" onerror="this.src='https://via.placeholder.com/150/1a1a24/22c55e?text=Comunidad.jpg'">
+            <img src="./Comunidad.jpg" alt="Daniel Esparza" class="artist-img" onerror="this.src='https://via.placeholder.com/150/1a1a24/22c55e?text=Comunidad.jpg'">
             <div class="artist-info">
               <h4>Daniel Esparza</h4>
               <span>Mensaje del Artista</span>
@@ -1218,7 +1240,7 @@
           <p>
             Sé parte del núcleo de seguidores de Daniel Esparza. Entérate de primera mano sobre lanzamientos, convivencias y promociones especiales para el Club de Fans.
           </p>
-          <a href="https://whatsapp.com" target="_blank" rel="noopener" class="btn-whatsapp">
+          <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.842-1.001z"/>
             </svg>
@@ -1236,10 +1258,10 @@
     <p class="footer-text">Tienda Oficial de Mercancía • Saltillo, Coahuila, México</p>
     
     <div class="social-links">
-      <a href="https://open.spotify.com/artist/5LphUNPQNOISizAY7izhdf?si=qOHMKl8uSoS5pRWQm8PjvA&utm_source=copy-link" target="_blank" rel="noopener">Spotify</a>
-      <a href="https://www.instagram.com/danielesparzaoficial?igsh=MTVmZnk0YTl1bjZsdA==" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.tiktok.com/@danielesparzaoficial1?_r=1&_t=ZS-98PltfkuoOf" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://youtube.com/@danielesparzaoficial?si=SGH4J5S5Kj17PutS" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://open.spotify.com/artist/5LphUNPQNOISizAY7izhdf?si=qOHMKl8uSoS5pRWQm8PjvA&utm_source=copy-link" target="_blank" rel="noopener noreferrer">Spotify</a>
+      <a href="https://www.instagram.com/danielesparzaoficial?igsh=MTVmZnk0YTl1bjZsdA==" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.tiktok.com/@danielesparzaoficial1?_r=1&_t=ZS-98PltfkuoOf" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://youtube.com/@danielesparzaoficial?si=SGH4J5S5Kj17PutS" target="_blank" rel="noopener noreferrer">YouTube</a>
     </div>
 
     <div class="copyright">
@@ -1338,7 +1360,7 @@
 
     // Clic en la foto de Boletos para ampliar
     document.getElementById('eventImgBox').addEventListener('click', () => {
-      lightboxImg.src = 'Boletos.jpg';
+      lightboxImg.src = './Boletos.jpg';
       imageModal.classList.add('active');
     });
 
