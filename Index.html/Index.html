@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Esparza | Official Store & Noctari Collection</title>
+  <title>Daniel Esparza | Tienda Oficial & Comunidad Noctari</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +19,8 @@
       --card-bg: rgba(18, 18, 24, 0.75);
       --accent-purple: #8b5cf6;
       --accent-glow: #a855f7;
+      --accent-gold: #f59e0b;
+      --whatsapp-green: #22c55e;
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
       --border-color: rgba(139, 92, 246, 0.25);
@@ -65,52 +67,62 @@
     }
 
     /* ===================================================
-       NAVBAR & CARRITO ICON
+       NAVBAR & MENU RESPONSIVO
     =================================================== */
     nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 80px;
+      height: 75px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 6%;
-      background: rgba(5, 5, 7, 0.9);
+      padding: 0 5%;
+      background: rgba(5, 5, 7, 0.95);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       z-index: 1000;
     }
 
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
+      z-index: 1001;
     }
 
     .nav-brand img {
-      height: 42px;
-      width: 42px;
+      height: 40px;
+      width: 40px;
       object-fit: cover;
+      object-position: center;
       border-radius: 50%;
       border: 2px solid var(--accent-purple);
-      box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
       background-color: #1a1a24;
+      flex-shrink: 0;
     }
 
     .nav-brand span {
       font-family: 'Cinzel', serif;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       color: #fff;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .nav-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .nav-links {
       display: flex;
-      gap: 25px;
+      gap: 20px;
       align-items: center;
       list-style: none;
     }
@@ -118,8 +130,8 @@
     .nav-links a {
       text-decoration: none;
       color: var(--text-muted);
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 13px;
+      font-weight: 600;
       letter-spacing: 1px;
       transition: all 0.3s ease;
     }
@@ -134,14 +146,16 @@
       background: rgba(139, 92, 246, 0.15);
       border: 1px solid var(--accent-purple);
       color: #fff;
-      padding: 8px 16px;
+      padding: 8px 14px;
       border-radius: 20px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 14px;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
       transition: all 0.3s ease;
+      white-space: nowrap;
     }
 
     .cart-btn:hover {
@@ -154,8 +168,19 @@
       color: white;
       font-size: 11px;
       font-weight: bold;
-      padding: 2px 7px;
+      padding: 2px 6px;
       border-radius: 50%;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 5px;
     }
 
     /* ===================================================
@@ -163,26 +188,26 @@
     =================================================== */
     .hero {
       position: relative;
-      min-height: 100vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 120px 6% 60px;
+      padding: 120px 5% 60px;
       text-align: center;
-      background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, var(--bg-dark) 85%),
-                  url("Logo.jpg") center/contain no-repeat;
+      background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, var(--bg-dark) 85%);
     }
 
     .hero-content {
-      max-width: 900px;
+      max-width: 850px;
       z-index: 2;
+      margin: 0 auto;
     }
 
     .hero-subtitle {
       font-family: 'Cinzel', serif;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--accent-purple);
-      letter-spacing: 5px;
+      letter-spacing: 4px;
       text-transform: uppercase;
       margin-bottom: 15px;
       display: block;
@@ -190,11 +215,11 @@
 
     .hero-title {
       font-family: 'Cinzel', serif;
-      font-size: clamp(38px, 6vw, 72px);
+      font-size: clamp(32px, 5.5vw, 68px);
       font-weight: 900;
       letter-spacing: 2px;
-      line-height: 1.1;
-      margin-bottom: 25px;
+      line-height: 1.15;
+      margin-bottom: 20px;
       background: linear-gradient(180deg, #ffffff 30%, #a855f7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -202,10 +227,10 @@
     }
 
     .hero-description {
-      font-size: clamp(15px, 2vw, 18px);
+      font-size: clamp(14px, 1.8vw, 17px);
       color: var(--text-muted);
-      margin-bottom: 40px;
-      max-width: 750px;
+      margin-bottom: 35px;
+      max-width: 700px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -218,12 +243,13 @@
     }
 
     .btn-primary {
-      padding: 14px 32px;
+      padding: 13px 28px;
       border-radius: 50px;
       background: linear-gradient(135deg, var(--accent-purple), #6d28d9);
       color: white;
       text-decoration: none;
       font-weight: 600;
+      font-size: 14px;
       letter-spacing: 1px;
       box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
       transition: all 0.3s ease;
@@ -236,12 +262,13 @@
     }
 
     .btn-secondary {
-      padding: 14px 32px;
+      padding: 13px 28px;
       border-radius: 50px;
       background: rgba(255, 255, 255, 0.03);
       color: white;
       text-decoration: none;
       font-weight: 600;
+      font-size: 14px;
       letter-spacing: 1px;
       border: 1px solid var(--border-color);
       backdrop-filter: blur(10px);
@@ -255,44 +282,47 @@
     }
 
     /* ===================================================
-       SECTIONS GENERAL & ABOUT FIX
+       SECTIONS GENERAL & ABOUT
     =================================================== */
     section {
-      padding: 100px 6%;
+      padding: 80px 5%;
       position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .section-title {
       font-family: 'Cinzel', serif;
-      font-size: clamp(28px, 4vw, 42px);
+      font-size: clamp(26px, 3.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 15px;
-      letter-spacing: 2px;
+      margin-bottom: 12px;
+      letter-spacing: 1.5px;
+      text-align: center;
     }
 
     .section-subtitle {
       color: var(--accent-purple);
       text-transform: uppercase;
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 3px;
-      margin-bottom: 40px;
+      margin-bottom: 35px;
       display: block;
+      text-align: center;
     }
 
     .about-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
       align-items: center;
     }
 
-    /* Ajuste perfecto para el marco morado */
     .about-image-wrapper {
       position: relative;
       width: 100%;
-      max-width: 420px;
+      max-width: 380px;
       margin: 0 auto;
-      padding: 10px; /* Margen de tolerancia para que el marco embone exacto */
+      padding: 10px;
     }
 
     .about-image-wrapper::before {
@@ -307,8 +337,9 @@
 
     .about-image {
       width: 100%;
-      height: 480px;
+      height: 440px;
       object-fit: cover;
+      object-position: center 20%; /* Enfocado en la cara */
       border-radius: 18px;
       position: relative;
       z-index: 1;
@@ -319,22 +350,22 @@
 
     .about-text p {
       color: var(--text-muted);
-      font-size: 16px;
-      margin-bottom: 20px;
+      font-size: 15px;
+      margin-bottom: 18px;
       line-height: 1.8;
     }
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 20px;
-      margin-top: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 15px;
+      margin-top: 40px;
     }
 
     .stat-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      padding: 25px 15px;
+      padding: 20px 12px;
       border-radius: 16px;
       text-align: center;
       backdrop-filter: blur(10px);
@@ -349,26 +380,26 @@
 
     .stat-number {
       font-family: 'Cinzel', serif;
-      font-size: 30px;
+      font-size: 26px;
       font-weight: 700;
       color: var(--accent-purple);
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
 
     .stat-label {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
     /* ===================================================
-       MERCH STORE & INTERACTIVIDAD IMÁGENES
+       MERCH STORE
     =================================================== */
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
     }
 
     .product-card {
@@ -377,33 +408,36 @@
       border-radius: 20px;
       overflow: hidden;
       backdrop-filter: blur(10px);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       display: flex;
       flex-direction: column;
       position: relative;
     }
 
-    /* Estado Elevado / Morado (1er Clic) */
     .product-card.selected-glow {
-      transform: translateY(-12px) scale(1.02);
+      transform: translateY(-8px) scale(1.02);
       border-color: var(--accent-glow);
-      box-shadow: 0 20px 40px rgba(168, 85, 247, 0.45);
+      box-shadow: 0 15px 35px rgba(168, 85, 247, 0.4);
       background: rgba(30, 20, 50, 0.85);
     }
 
     .product-img-box {
       position: relative;
       width: 100%;
-      height: 350px;
+      height: 320px;
       background-color: #1a1a24;
       overflow: hidden;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .product-img-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       transition: transform 0.5s ease;
     }
 
@@ -413,12 +447,12 @@
 
     .tag {
       position: absolute;
-      top: 15px;
-      right: 15px;
+      top: 12px;
+      right: 12px;
       background: rgba(5, 5, 7, 0.85);
       border: 1px solid var(--accent-purple);
       color: #fff;
-      padding: 5px 12px;
+      padding: 4px 10px;
       font-size: 10px;
       border-radius: 20px;
       text-transform: uppercase;
@@ -427,25 +461,30 @@
       z-index: 2;
     }
 
+    .tag.tag-gold {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
     .product-info {
-      padding: 25px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
     .product-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .product-desc {
       color: var(--text-muted);
-      font-size: 14px;
-      margin-bottom: 20px;
+      font-size: 13px;
+      margin-bottom: 18px;
       flex-grow: 1;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     .product-bottom {
@@ -453,24 +492,26 @@
       justify-content: space-between;
       align-items: center;
       margin-top: auto;
+      gap: 10px;
     }
 
     .product-price {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--accent-glow);
     }
 
     .btn-buy {
-      padding: 10px 20px;
+      padding: 9px 16px;
       background: var(--accent-purple);
       color: white;
       border: none;
       border-radius: 30px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s;
+      white-space: nowrap;
     }
 
     .btn-buy:hover {
@@ -478,37 +519,233 @@
       box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
     }
 
-    /* Banner Promo */
-    .banner {
-      margin-top: 70px;
-      background: linear-gradient(135deg, rgba(109, 40, 217, 0.3), rgba(18, 18, 24, 0.8));
-      border: 1px solid var(--accent-purple);
+    /* ===================================================
+       SECCIÓN CLUB DE FANS & PROMO BOLETOS
+    =================================================== */
+    .fanclub-section {
+      background: linear-gradient(135deg, rgba(20, 15, 35, 0.9), rgba(5, 5, 7, 0.95));
+      border: 1px solid rgba(245, 158, 11, 0.3);
       border-radius: 24px;
-      padding: 50px 25px;
-      text-align: center;
-      backdrop-filter: blur(15px);
+      padding: 40px 5%;
+      margin-top: 20px;
+      box-shadow: 0 0 40px rgba(245, 158, 11, 0.1);
     }
 
-    .banner h3 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(22px, 3vw, 32px);
+    .fanclub-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      align-items: center;
+    }
+
+    .event-img-wrapper {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid var(--accent-gold);
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+      cursor: pointer;
+      max-width: 400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .event-img-wrapper img {
+      width: 100%;
+      height: auto;
+      max-height: 480px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.5s ease;
+      background: #000;
+    }
+
+    .event-img-wrapper:hover img {
+      transform: scale(1.03);
+    }
+
+    .promo-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-gold), #d97706);
+      color: #000;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       margin-bottom: 15px;
     }
 
-    .banner p {
+    .fanclub-details h3 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(22px, 3vw, 32px);
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .fanclub-details p {
       color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto;
+      font-size: 14px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .promo-box {
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 4px solid var(--accent-gold);
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 25px;
+    }
+
+    .promo-box h4 {
+      color: var(--accent-gold);
       font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .promo-box p {
+      margin-bottom: 0;
+      font-size: 13px;
+      color: #e5e7eb;
+    }
+
+    .btn-gold {
+      padding: 12px 28px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--accent-gold), #b45309);
+      color: #000;
+      font-weight: 700;
+      font-size: 13px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+      transition: all 0.3s ease;
+      display: inline-block;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.7);
     }
 
     /* ===================================================
-       MODALES (CARRITO Y LIGHTBOX IMAGEN)
+       SECCIÓN COMUNIDAD WHATSAPP
+    =================================================== */
+    .community-section {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 24px;
+      padding: 40px 5%;
+      margin-top: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .community-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      align-items: center;
+    }
+
+    .artist-invitation-card {
+      background: rgba(18, 18, 24, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .artist-profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .artist-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top; /* Cara centrada */
+      border: 2px solid var(--whatsapp-green);
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+      background-color: #1a1a24;
+      flex-shrink: 0;
+    }
+
+    .artist-info h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 17px;
+      color: #fff;
+    }
+
+    .artist-info span {
+      font-size: 11px;
+      color: var(--whatsapp-green);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .quote-box {
+      font-style: italic;
+      color: #e2e8f0;
+      font-size: 14px;
+      line-height: 1.7;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 16px;
+      border-radius: 12px;
+      border-left: 3px solid var(--whatsapp-green);
+    }
+
+    .community-info h3 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(22px, 3vw, 32px);
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .community-info p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .btn-whatsapp {
+      padding: 13px 28px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(34, 197, 94, 0.7);
+    }
+
+    /* ===================================================
+       MODALES & LIGHTBOX
     =================================================== */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.88);
       backdrop-filter: blur(10px);
       z-index: 2000;
       display: none;
@@ -526,18 +763,18 @@
       border: 1px solid var(--accent-purple);
       border-radius: 20px;
       width: 100%;
-      max-width: 500px;
-      padding: 30px;
+      max-width: 480px;
+      padding: 25px;
       position: relative;
       box-shadow: 0 20px 50px rgba(139, 92, 246, 0.3);
-      max-height: 90vh;
+      max-height: 85vh;
       overflow-y: auto;
     }
 
     .close-modal {
       position: absolute;
       top: 15px;
-      right: 20px;
+      right: 18px;
       background: transparent;
       border: none;
       color: var(--text-muted);
@@ -560,7 +797,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .cart-item-name {
@@ -574,30 +811,31 @@
     .cart-total {
       display: flex;
       justify-content: space-between;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: bold;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .checkout-form {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 12px;
     }
 
     .checkout-form h4 {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--accent-purple);
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
 
     .checkout-form input, .checkout-form textarea {
       width: 100%;
-      padding: 12px;
+      padding: 10px 12px;
       background: #181824;
       border: 1px solid var(--border-color);
       border-radius: 8px;
       color: white;
+      font-size: 13px;
       font-family: inherit;
     }
 
@@ -606,58 +844,57 @@
       outline: none;
     }
 
-    /* Lightbox Modal para Imagen Completa */
     .lightbox-img {
       max-width: 90vw;
-      max-height: 85vh;
-      border-radius: 15px;
+      max-height: 80vh;
+      border-radius: 12px;
       border: 2px solid var(--accent-purple);
-      box-shadow: 0 0 50px rgba(168, 85, 247, 0.5);
+      box-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
       object-fit: contain;
     }
 
     /* ===================================================
-       FOOTER & REDES SOCIALES
+       FOOTER
     =================================================== */
     footer {
       background: #020203;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 50px 6% 30px;
+      padding: 40px 5% 25px;
       text-align: center;
+      margin-top: 50px;
     }
 
     .footer-brand {
       font-family: 'Cinzel', serif;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .footer-text {
       color: var(--text-muted);
-      font-size: 14px;
-      margin-bottom: 30px;
+      font-size: 13px;
+      margin-bottom: 25px;
     }
 
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 30px;
+      gap: 10px;
+      margin-bottom: 25px;
       flex-wrap: wrap;
     }
 
     .social-links a {
       color: var(--text-main);
       text-decoration: none;
-      padding: 10px 22px;
+      padding: 8px 18px;
       border: 1px solid var(--border-color);
       border-radius: 30px;
-      font-size: 13px;
+      font-size: 12px;
       transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
     }
 
     .social-links a:hover {
@@ -668,29 +905,28 @@
 
     .copyright {
       color: #4b5563;
-      font-size: 12px;
+      font-size: 11px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 20px;
+      padding-top: 18px;
     }
 
     .btn-top {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 45px;
-      height: 45px;
+      bottom: 20px;
+      right: 20px;
+      width: 42px;
+      height: 42px;
       background: var(--card-bg);
       border: 1px solid var(--accent-purple);
       border-radius: 50%;
       color: white;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
-      z-index: 100;
-      display: none;
+      z-index: 99;
     }
 
     .btn-top:hover {
@@ -698,18 +934,50 @@
       transform: translateY(-3px);
     }
 
-    @media (max-width: 768px) {
-      nav {
-        padding: 0 4%;
+    /* ===================================================
+       RESPONSIVE DESIGN (OPTIMIZACIÓN MÓVIL)
+    =================================================== */
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
       }
+
       .nav-links {
-        gap: 12px;
+        position: fixed;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: rgba(5, 5, 7, 0.98);
+        flex-direction: column;
+        padding: 25px 0;
+        gap: 18px;
+        border-bottom: 1px solid var(--border-color);
+        transform: translateY(-150%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 999;
       }
-      .nav-links a {
-        font-size: 11px;
+
+      .nav-links.active {
+        transform: translateY(0);
       }
+    }
+
+    @media (max-width: 480px) {
+      .nav-brand span {
+        font-size: 14px;
+      }
+
+      .hero {
+        padding-top: 110px;
+      }
+
       .products-grid {
         grid-template-columns: 1fr;
+      }
+
+      .product-bottom {
+        flex-direction: row;
+        align-items: center;
       }
     }
   </style>
@@ -720,36 +988,42 @@
   <div class="glow-bg-top"></div>
   <div class="glow-bg-bottom"></div>
 
-  <!-- NAVBAR CON CARRITO -->
+  <!-- NAVBAR CON NAVEGACIÓN LIMPIA -->
   <nav>
     <a href="#inicio" class="nav-brand">
       <img src="Logo.jpg" alt="Logo" onerror="this.src='https://via.placeholder.com/150/1a1a24/8b5cf6?text=DE'">
       <span>DANIEL ESPARZA</span>
     </a>
-    <ul class="nav-links">
+
+    <div class="nav-right-actions">
+      <button class="cart-btn" id="openCartBtn">
+        🛒 Carrito <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menú">☰</button>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
       <li><a href="#inicio">INICIO</a></li>
       <li><a href="#artista">ARTISTA</a></li>
-      <li><a href="#merch">MERCH</a></li>
-      <li>
-        <button class="cart-btn" id="openCartBtn">
-          🛒 Carrito <span class="cart-count" id="cartCount">0</span>
-        </button>
-      </li>
+      <li><a href="#merch">MERCANCÍA</a></li>
+      <li><a href="#club-fans">CLUB FANS</a></li>
+      <li><a href="#comunidad">COMUNIDAD</a></li>
     </ul>
   </nav>
 
   <!-- HERO SECTION -->
   <header class="hero" id="inicio">
     <div class="hero-content">
-      <span class="hero-subtitle">Official Merch Store</span>
-      <h1 class="hero-title">NOCTARI COLLECTION</h1>
+      <span class="hero-subtitle">Tienda Oficial de Mercancía</span>
+      <h1 class="hero-title">COLECCIÓN NOCTARI</h1>
       <p class="hero-description">
         Música, estética gótica contemporánea y moda urbana integradas en una propuesta única.
-        Explora la línea oficial de prendas exclusivas diseñadas bajo el universo creativo de Daniel Esparza.
+        Explora la línea oficial de prendas y accesorios exclusivos diseñados bajo el universo creativo de Daniel Esparza.
       </p>
       <div class="cta-container">
         <a href="#merch" class="btn-primary">COMPRAR COLECCIÓN</a>
-        <a href="#artista" class="btn-secondary">VER ARTISTA</a>
+        <a href="#club-fans" class="btn-secondary">EDICIÓN FANS & BOLETOS</a>
       </div>
     </div>
   </header>
@@ -761,8 +1035,8 @@
         <img src="Danpres.jpg" alt="Daniel Esparza" class="about-image" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Danpres.jpg'">
       </div>
       <div class="about-text">
-        <span class="section-subtitle">Biografía y Visión</span>
-        <h2 class="section-title">Sobre Daniel Esparza</h2>
+        <span class="section-subtitle" style="text-align: left;">Biografía y Visión</span>
+        <h2 class="section-title" style="text-align: left;">Sobre Daniel Esparza</h2>
         <p>
           Originario de Saltillo, Coahuila, Daniel Esparza es una figura emergente que replantea la música regional y los corridos tumbados integrando elementos visuales del movimiento gótico e industrial.
         </p>
@@ -787,8 +1061,8 @@
         <div class="stat-label">Trayectoria</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">Official</div>
-        <div class="stat-label">Noctari Store</div>
+        <div class="stat-number">Oficial</div>
+        <div class="stat-label">Tienda Noctari</div>
       </div>
     </div>
   </section>
@@ -801,13 +1075,13 @@
     <div class="products-grid">
       
       <!-- Producto 1 -->
-      <div class="product-card" data-id="1" data-name="Playera Oversize" data-price="699" data-img="Merch1.jpg">
+      <div class="product-card" data-id="1" data-name="Playera noctari (oversize)" data-price="699" data-img="Merch1.jpg">
         <div class="product-img-box">
           <span class="tag">Oversize</span>
-          <img src="Merch1.jpg" alt="Playera Oversize Noctari" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch1.jpg'">
+          <img src="Merch1.jpg" alt="Playera noctari (oversize)" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch1.jpg'">
         </div>
         <div class="product-info">
-          <h3 class="product-title">Playera Oversize</h3>
+          <h3 class="product-title">Playera noctari (oversize)</h3>
           <p class="product-desc">
             Diseño exclusivo de corte amplio en algodón pesado. Gráficos de alta calidad resistentes al desgaste.
           </p>
@@ -819,54 +1093,147 @@
       </div>
 
       <!-- Producto 2 -->
-      <div class="product-card" data-id="2" data-name="Noctari Edition Tee" data-price="749" data-img="Merch2.jpg">
+      <div class="product-card" data-id="2" data-name="Sudadera noctari edition negro/morado" data-price="999" data-img="Merch2.jpg">
         <div class="product-img-box">
           <span class="tag">Edición Limitada</span>
-          <img src="Merch2.jpg" alt="Noctari Edition Tee" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch2.jpg'">
+          <img src="Merch2.jpg" alt="Sudadera noctari edition negro/morado" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch2.jpg'">
         </div>
         <div class="product-info">
-          <h3 class="product-title">Noctari Edition</h3>
+          <h3 class="product-title">Sudadera noctari edition negro/morado</h3>
           <p class="product-desc">
-            Edición especial con arte simétrico minimalista. Una representación directa de la identidad de la marca.
+            Edición especial con contraste oscuro y detalles en morado. Confeccionada con gorro y felpa de alta densidad.
           </p>
           <div class="product-bottom">
-            <span class="product-price">$749 MXN</span>
+            <span class="product-price">$999 MXN</span>
             <button class="btn-buy add-to-cart">Agregar al Carrito</button>
           </div>
         </div>
       </div>
 
       <!-- Producto 3 -->
-      <div class="product-card" data-id="3" data-name="Signature Tee" data-price="799" data-img="Merch3.jpg">
+      <div class="product-card" data-id="3" data-name="Gorra de signatura noctari" data-price="499" data-img="Merch3.jpg">
         <div class="product-img-box">
           <span class="tag">Exclusivo</span>
-          <img src="Merch3.jpg" alt="Signature Tee" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch3.jpg'">
+          <img src="Merch3.jpg" alt="Gorra de signatura noctari" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Merch3.jpg'">
         </div>
         <div class="product-info">
-          <h3 class="product-title">Signature Tee</h3>
+          <h3 class="product-title">Gorra de signatura noctari</h3>
           <p class="product-desc">
-            Diseño de autor confeccionado con materiales premium de textura suave y duradera.
+            Gorra bordada de alta precisión con ajustador personalizado y estructura premium.
           </p>
           <div class="product-bottom">
-            <span class="product-price">$799 MXN</span>
+            <span class="product-price">$499 MXN</span>
+            <button class="btn-buy add-to-cart">Agregar al Carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="product-card" data-id="4" data-name="Stickers de presentación colección Daniel esparza" data-price="149" data-img="Sticker.jpg">
+        <div class="product-img-box">
+          <span class="tag">Accesorios</span>
+          <img src="Sticker.jpg" alt="Stickers de presentación colección Daniel esparza" onerror="this.src='https://via.placeholder.com/400x500/1a1a24/8b5cf6?text=Sticker.jpg'">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Stickers de presentación colección Daniel esparza</h3>
+          <p class="product-desc">
+            Set exclusivo de calcomanías en vinil resistente e impermeable, con el arte y la identidad visual de la colección.
+          </p>
+          <div class="product-bottom">
+            <span class="product-price">$149 MXN</span>
             <button class="btn-buy add-to-cart">Agregar al Carrito</button>
           </div>
         </div>
       </div>
 
     </div>
+  </section>
 
-    <!-- BANNER PROMO -->
-    <div class="banner">
-      <h3>ÚNETE AL UNIVERSO NOCTARI</h3>
-      <p>Nuestra ropa no es únicamente merchandise; es la extensión tangible de una visión artística sin concesiones.</p>
+  <!-- SECCIÓN CLUB DE FANS & PRÓXIMO EVENTO -->
+  <section id="club-fans">
+    <span class="section-subtitle">Exclusivo para Fans</span>
+    <h2 class="section-title">Edición Especial Club de Fans</h2>
+
+    <div class="fanclub-section">
+      <div class="fanclub-container">
+        <!-- Foto Próximo Evento / Boletos -->
+        <div class="event-img-wrapper" id="eventImgBox">
+          <img src="Boletos.jpg" alt="Boletos Próximo Concierto" onerror="this.src='https://via.placeholder.com/500x600/1a1a24/f59e0b?text=Boletos.jpg'">
+        </div>
+
+        <div class="fanclub-details">
+          <span class="promo-badge">🔥 Promoción Exclusiva</span>
+          <h3>Boletos Siguiente Concierto + Fan Pack</h3>
+          <p>
+            Consigue tu acceso preferencial antes que nadie para el próximo concierto en vivo de Daniel Esparza. Como miembro del club de fans, aseguras tu boleto con beneficios únicos.
+          </p>
+
+          <div class="promo-box">
+            <h4>🎁 Promo Fan Pack Noctari</h4>
+            <p>
+              En la compra de tu boleto VIP o General en preventa, obtén un <strong>20% de descuento</strong> en cualquier prenda de la colección Noctari + Set de Stickers de regalo.
+            </p>
+          </div>
+
+          <!-- Tarjeta agregable al carrito -->
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap;">
+            <div>
+              <span style="font-size: 12px; color: var(--text-muted); display: block;">Precio Preventa</span>
+              <span style="font-size: 24px; font-weight: 800; color: var(--accent-gold);">$350 MXN</span>
+            </div>
+            <button class="btn-gold add-to-cart-custom" data-id="5" data-name="Boleto Concierto Daniel Esparza (Preventa Fans)" data-price="350">
+              Comprar Boleto
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER CON ENLACES OFICIALES -->
+  <!-- COMUNICADO & COMUNIDAD DE WHATSAPP -->
+  <section id="comunidad">
+    <span class="section-subtitle">Unión & Novedades</span>
+    <h2 class="section-title">Comunidad Oficial Noctari</h2>
+
+    <div class="community-section">
+      <div class="community-container">
+        
+        <!-- Tarjeta de Invitación de Daniel Esparza -->
+        <div class="artist-invitation-card">
+          <div class="artist-profile">
+            <img src="Comunidad.jpg" alt="Daniel Esparza" class="artist-img" onerror="this.src='https://via.placeholder.com/150/1a1a24/22c55e?text=Comunidad.jpg'">
+            <div class="artist-info">
+              <h4>Daniel Esparza</h4>
+              <span>Mensaje del Artista</span>
+            </div>
+          </div>
+          <div class="quote-box">
+            "Mi gente, creé este grupo oficial de WhatsApp para estar más cerca de ustedes. Por aquí les compartiré adelantos inéditos de mi música, fechas exclusivas, preventas de boletos y sorpresas especiales de la colección Noctari antes que a nadie. ¡Los espero adentro!"
+          </div>
+        </div>
+
+        <!-- Información y Botón de Unión -->
+        <div class="community-info">
+          <h3>Súmate al WhatsApp Oficial</h3>
+          <p>
+            Sé parte del núcleo de seguidores de Daniel Esparza. Entérate de primera mano sobre lanzamientos, convivencias y promociones especiales para el Club de Fans.
+          </p>
+          <a href="https://whatsapp.com" target="_blank" rel="noopener" class="btn-whatsapp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.842-1.001z"/>
+            </svg>
+            Unirme a la Comunidad
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer id="contacto">
     <div class="footer-brand">DANIEL ESPARZA</div>
-    <p class="footer-text">Official Merch Store • Saltillo, Coahuila, México</p>
+    <p class="footer-text">Tienda Oficial de Mercancía • Saltillo, Coahuila, México</p>
     
     <div class="social-links">
       <a href="https://open.spotify.com/artist/5LphUNPQNOISizAY7izhdf?si=qOHMKl8uSoS5pRWQm8PjvA&utm_source=copy-link" target="_blank" rel="noopener">Spotify</a>
@@ -880,11 +1247,11 @@
     </div>
   </footer>
 
-  <!-- MODAL CARRITO DE COMPRAS Y DIRECCIÓN -->
+  <!-- MODAL CARRITO DE COMPRAS -->
   <div class="modal-overlay" id="cartModal">
     <div class="modal-content">
       <button class="close-modal" id="closeCartBtn">&times;</button>
-      <h3 style="font-family: 'Cinzel', serif; font-size: 22px; margin-bottom: 15px;">Tu Carrito</h3>
+      <h3 style="font-family: 'Cinzel', serif; font-size: 20px; margin-bottom: 15px;">Tu Carrito</h3>
       
       <div class="cart-items" id="cartItemsList">
         <p style="color: var(--text-muted); text-align: center;">El carrito está vacío</p>
@@ -896,12 +1263,12 @@
       </div>
 
       <form class="checkout-form" id="checkoutForm" onsubmit="simularCompra(event)">
-        <h4>Dirección de Entrega</h4>
+        <h4>Dirección de Entrega / Datos para Boleto</h4>
         <input type="text" placeholder="Nombre completo" required>
         <input type="text" placeholder="Calle, número exterior/interior" required>
         <input type="text" placeholder="Colonia / Código Postal" required>
         <input type="text" placeholder="Ciudad, Estado" value="Saltillo, Coahuila" required>
-        <input type="tel" placeholder="Teléfono de contacto" required>
+        <input type="tel" placeholder="Teléfono de contacto (WhatsApp)" required>
 
         <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">
           Confirmar y Simular Compra
@@ -912,7 +1279,7 @@
 
   <!-- MODAL LIGHTBOX IMAGEN COMPLETA -->
   <div class="modal-overlay" id="imageModal">
-    <button class="close-modal" id="closeImgBtn" style="position: fixed; top: 20px; right: 30px; font-size: 40px;">&times;</button>
+    <button class="close-modal" id="closeImgBtn" style="position: fixed; top: 20px; right: 25px; font-size: 36px; color: #fff;">&times;</button>
     <img src="" alt="Vista Previa" class="lightbox-img" id="lightboxImg">
   </div>
 
@@ -920,6 +1287,20 @@
   <button class="btn-top" id="btnTop" title="Volver arriba">↑</button>
 
   <script>
+    // MENÚ RESPONSIVO MÓVIL
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
     // ESTADO DEL CARRITO
     let cart = [];
 
@@ -939,25 +1320,29 @@
       if (e.target === imageModal) imageModal.classList.remove('active');
     });
 
-    // LÓGICA DE CLIC EN IMÁGENES (1er Clic: Resplandor/Elevado | 2do Clic: Modal Completo)
+    // LÓGICA CLIC EN PRODUCTOS (1er Clic: Resplandor/Elevado | 2do Clic: Modal Completo)
     document.querySelectorAll('.product-card').forEach(card => {
       const imgBox = card.querySelector('.product-img-box');
       const imgSrc = card.getAttribute('data-img');
 
-      imgBox.addEventListener('click', (e) => {
+      imgBox.addEventListener('click', () => {
         if (card.classList.contains('selected-glow')) {
-          // Segundo clic: Abrir imagen completa
           lightboxImg.src = imgSrc;
           imageModal.classList.add('active');
         } else {
-          // Primer clic: Resaltar y elevar la tarjeta
           document.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected-glow'));
           card.classList.add('selected-glow');
         }
       });
     });
 
-    // AGREGAR AL CARRITO
+    // Clic en la foto de Boletos para ampliar
+    document.getElementById('eventImgBox').addEventListener('click', () => {
+      lightboxImg.src = 'Boletos.jpg';
+      imageModal.classList.add('active');
+    });
+
+    // AGREGAR AL CARRITO PRODUCTOS DE TIENDA
     document.querySelectorAll('.add-to-cart').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -965,6 +1350,19 @@
         const id = card.getAttribute('data-id');
         const name = card.getAttribute('data-name');
         const price = parseFloat(card.getAttribute('data-price'));
+
+        cart.push({ id, name, price });
+        updateCart();
+        cartModal.classList.add('active');
+      });
+    });
+
+    // AGREGAR BOLETOS DESDE CLUB DE FANS
+    document.querySelectorAll('.add-to-cart-custom').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-id');
+        const name = btn.getAttribute('data-name');
+        const price = parseFloat(btn.getAttribute('data-price'));
 
         cart.push({ id, name, price });
         updateCart();
@@ -998,7 +1396,7 @@
         cartItemsList.appendChild(itemEl);
       });
 
-      cartTotalAmount.textContent = `$${total} MXN`;
+      cartTotalAmount.textContent = $${total} MXN;
     }
 
     function removeItem(index) {
@@ -1010,11 +1408,11 @@
     function simularCompra(e) {
       e.preventDefault();
       if (cart.length === 0) {
-        alert("Tu carrito está vacío. Agrega productos antes de realizar la compra.");
+        alert("Tu carrito está vacío. Agrega productos o boletos antes de realizar la compra.");
         return;
       }
 
-      alert("🎉 ¡Pedido Confirmado!\n\nGracias por tu compra en la tienda oficial de Daniel Esparza.\nHemos registrado tu dirección de entrega y tu pedido está en proceso.");
+      alert("🎉 ¡Pedido Confirmado!\n\nGracias por tu compra en la tienda oficial de Daniel Esparza.\nHemos registrado tus datos y tu pedido/boletos están en proceso.");
       cart = [];
       updateCart();
       cartModal.classList.remove('active');
